@@ -70,6 +70,37 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+## ETL Execution
+
+Run the reproducible ETL pipeline from the repository root:
+
+```bash
+python scripts/etl_pipeline.py
+```
+
+Recommended workflow:
+
+1. Confirm the Kaggle files are present in `data/raw/nifty-dataset/`.
+2. Run `python scripts/etl_pipeline.py` to rebuild the extracted and cleaned datasets.
+3. Open `notebooks/01_extraction.ipynb` to review file detection, extraction logic, and the raw combined dataset profile.
+4. Open `notebooks/02_cleaning.ipynb` to review cleaning decisions, validation checks, engineered features, and saved outputs.
+
+Graceful-failure behavior:
+
+- If no raw stock CSVs are available under `data/raw/`, the ETL script exits with a clear instruction instead of fabricating processed outputs.
+- When both per-stock files and `NIFTY50_all.csv` are present, the ETL prefers the per-stock files so the combined dataset is rebuilt without double-counting rows.
+
+## ETL Outputs
+
+The extraction and cleaning layer writes the following project artifacts:
+
+| Output Path | Description |
+| --- | --- |
+| `data/processed/nifty50_combined_raw.csv` | Combined raw trading dataset rebuilt from the detected stock CSV files, with metadata attached where available |
+| `data/processed/nifty50_cleaned.csv` | Cleaned and standardized dataset with quality flags and derived trading features |
+| `outputs/tables/cleaning_summary.csv` | Machine-readable ETL summary containing row counts, missingness, duplicate counts, and flag totals |
+| `docs/cleaning_log.md` | Human-readable cleaning log documenting detection logic, missing-value handling, validation checks, and turnover standardization |
+
 ## Expected Final Deliverables
 
 - Cleaned and documented Python ETL pipeline
