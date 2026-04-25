@@ -101,6 +101,35 @@ The extraction and cleaning layer writes the following project artifacts:
 | `outputs/tables/cleaning_summary.csv` | Machine-readable ETL summary containing row counts, missingness, duplicate counts, and flag totals |
 | `docs/cleaning_log.md` | Human-readable cleaning log documenting detection logic, missing-value handling, validation checks, and turnover standardization |
 
+## EDA and KPI Outputs
+
+The analysis layer builds directly on `data/processed/nifty50_cleaned.csv` and is organized around Abhey Dua's EDA, KPI framework, and Tableau-ready tables.
+
+- Notebook: `notebooks/03_eda.ipynb`
+- Reusable analysis module: `scripts/eda_analysis.py`
+- KPI framework documentation: `docs/kpi_framework.md`
+- Business insight memo: `docs/eda_insights.md`
+
+Generated tables:
+
+| Output Path | Description |
+| --- | --- |
+| `outputs/tables/stock_kpis.csv` | Company-level KPI table covering return, volatility, drawdown, liquidity, delivery strength, and opportunity scoring |
+| `outputs/tables/sector_kpis.csv` | Sector-level KPI table for comparative performance, risk, liquidity, and confidence analysis |
+| `outputs/tables/yearly_market_summary.csv` | Year-by-year market summary for returns, volatility, turnover, and delivery behavior |
+| `outputs/tables/covid_period_summary.csv` | Pre-COVID, crash, and recovery summary table for 2020 stress analysis |
+
+Generated charts:
+
+- `outputs/charts/yearly_market_trend.png`
+- `outputs/charts/top_10_stocks_return.png`
+- `outputs/charts/sector_return_comparison.png`
+- `outputs/charts/sector_volatility_comparison.png`
+- `outputs/charts/volume_turnover_trend.png`
+- `outputs/charts/delivery_percent_trend.png`
+- `outputs/charts/risk_return_scatter.png`
+- `outputs/charts/covid_crash_recovery.png`
+
 ## Expected Final Deliverables
 
 - Cleaned and documented Python ETL pipeline
