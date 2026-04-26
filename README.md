@@ -130,6 +130,38 @@ Generated charts:
 - `outputs/charts/risk_return_scatter.png`
 - `outputs/charts/covid_crash_recovery.png`
 
+## Statistical Analysis Outputs
+
+The statistical layer extends the project beyond counts, averages, and descriptive charts. It adds formal testing, downside-risk measurement, rule-based stock segmentation, and cautious moving-average trend analysis without overwriting the earlier EDA outputs.
+
+- Notebook: `notebooks/04_statistical_analysis.ipynb`
+- Reusable analysis module: `scripts/statistical_analysis.py`
+- Summary memo: `docs/statistical_analysis_summary.md`
+- Recommendation memo: `docs/recommendation_evidence.md`
+
+Generated tables:
+
+| Output Path | Description |
+| --- | --- |
+| `outputs/tables/statistical_test_results.csv` | Correlation checks, hypothesis-test results, p-values, and interpretation notes for the main statistical questions |
+| `outputs/tables/risk_summary.csv` | Stock-level downside-risk table with drawdown, downside volatility, historical VaR/CVaR, composite risk score, and risk bucket |
+| `outputs/tables/stock_segments.csv` | Rule-based stock segmentation output for compounders, high-growth/high-risk names, liquid trading candidates, weak candidates, and defensive names |
+| `outputs/tables/recommendation_evidence.csv` | Five evidence-backed recommendation candidates linking insights to action, impact, and feasibility |
+
+Generated charts:
+
+- `outputs/charts/correlation_heatmap.png`
+- `outputs/charts/risk_return_segments.png`
+- `outputs/charts/max_drawdown_top10.png`
+- `outputs/charts/sector_statistical_comparison.png`
+
+Statistical design notes:
+
+- Delivery, volume, and turnover relationships are treated as exploratory correlations, not causal claims.
+- Sector comparison uses a non-parametric test when the data does not support equal-variance assumptions.
+- A five-cluster KMeans solution was checked, but the final segmentation uses a transparent rule-based method because the required five-cluster structure was not strongly supported by the sample.
+- Trend analysis uses 20-day and 60-day moving averages as regime indicators only and does not claim forecasting accuracy.
+
 ## Expected Final Deliverables
 
 - Cleaned and documented Python ETL pipeline
