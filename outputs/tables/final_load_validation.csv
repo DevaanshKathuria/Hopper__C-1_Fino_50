@@ -1,0 +1,6 @@
+dataset_name,rows,columns,duplicate_key_rows,missing_value_cells,columns_with_missing_values,date_range_start,date_range_end,stock_count,sector_count,kpi_availability_percent,index_like_columns
+tableau_stock_level.csv,49,27,0,0,No missing columns,2000-01-03,2021-04-30,49,13,100.0,No index-like columns
+tableau_sector_level.csv,13,27,0,0,No missing columns,2000-01-03,2021-04-30,0,13,100.0,No index-like columns
+tableau_yearly_trends.csv,69627,16,0,7595,"Daily Return, 20D Moving Average, 60D Moving Average, Average Delivery (%)",2000-01-03,2021-04-30,0,13,99.5,No index-like columns
+tableau_risk_segments.csv,49,26,0,0,No missing columns,2000-01-03,2021-04-30,49,13,100.0,No index-like columns
+tableau_recommendation_view.csv,49,20,0,0,No missing columns,2000-01-03,2021-04-30,49,13,100.0,No index-like columns
