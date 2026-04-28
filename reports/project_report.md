@@ -2,7 +2,7 @@
 
 ## Cover Page
 
-Group Name: NST DVA Capstone 2 Team
+Group Name: Fino_50 (C-1)
 
 Team Members:
 

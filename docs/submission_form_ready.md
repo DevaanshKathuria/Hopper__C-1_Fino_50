@@ -8,7 +8,7 @@ birajit.saikia@adypu.edu.in
 
 ## Group Name
 
-NST DVA Capstone 2 Team
+Fino_50 (C-1)
 
 ## Team Member Fields
 
