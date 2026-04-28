@@ -2,7 +2,7 @@
 
 ## Tableau Public URL
 
-Status: Pending publication. The packaged workbook (`tableau/nifty50_dashboard.twbx`) is ready and must be opened in Tableau Desktop (Windows/macOS) to publish to Tableau Public. Update this section with the final URL after publication.
+Status: Publication deferred. The verified packaged workbook for this submission is `tableau/nifty50_dashboard_twilize.twbx`, and it opens correctly in Tableau Desktop. Add the real Tableau Public URL here later if the dashboard is published.
 
 Final URL:
 To be added after the Tableau dashboard is published from the `.twbx` file using Tableau Desktop.
@@ -12,7 +12,7 @@ Do not insert a fake or temporary URL here. Replace this line only when the real
 
 ## Packaged Workbook
 
-- `tableau/nifty50_dashboard.twbx` — packaged Tableau workbook containing all five CSV data sources, worksheet stubs for all six dashboard views, and a master dashboard layout. Built by `scripts/build_twbx.py`.
+- `tableau/nifty50_dashboard_twilize.twbx` — verified packaged Tableau workbook used for submission. Built from the flattened master extract by `scripts/generate_twilize_dashboard.py` and confirmed to open in Tableau Desktop.
 
 ## Reference Screenshots
 

@@ -24,7 +24,9 @@ Add the shared Google Drive link to `reports/project_report.pdf` after upload.
 
 ## Tableau Dashboard File
 
-Upload the final `.twbx` file only. The repository currently contains Tableau-ready CSVs and a dashboard blueprint, but the packaged Tableau workbook must still be created in Tableau.
+Upload the final `.twbx` file only:
+
+- `tableau/nifty50_dashboard_twilize.twbx`
 
 ## GitHub Link
 
