@@ -2,7 +2,10 @@
 
 ## Tableau Public URL
 
-To be added after publishing the final dashboard.
+Status: Pending publication.
+
+Final URL:
+To be added after the Tableau dashboard is built and published.
 
 Placeholder rule:
 Do not insert a fake or temporary URL here. Replace this line only when the real Tableau Public link exists.
@@ -12,6 +15,7 @@ Do not insert a fake or temporary URL here. Replace this line only when the real
 - Export the final dashboard as a packaged Tableau workbook in `.twbx` format.
 - Submit the `.twbx` file only for the dashboard requirement.
 - Keep the Tableau Public URL aligned with the same final workbook version.
+- Add the same final Tableau Public URL to `reports/project_report.md` before creating the final submission PDF.
 
 ## Tableau Data Files Used
 

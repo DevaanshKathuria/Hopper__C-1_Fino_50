@@ -32,18 +32,22 @@ Use this checklist as the final handoff gate before the NST DVA Capstone 2 submi
 - [x] Report clearly includes group name and all team members.
 - [x] Report states that cited numbers come from actual versioned output tables.
 - [x] Presentation outline is present: `reports/presentation_outline.md`.
-- [ ] Report PDF has been generated.
-- [ ] Presentation PDF has been generated.
-- [ ] PDF exports match the final Markdown content exactly.
+- [x] Report DOCX has been generated: `reports/project_report.docx`.
+- [x] Report PDF has been generated: `reports/project_report.pdf`.
+- [x] Presentation PPTX has been generated: `reports/presentation.pptx`.
+- [x] Presentation PDF has been generated: `reports/presentation.pdf`.
+- [x] PDF exports match the current Markdown content, with Tableau URL and screenshots still pending final workbook publication.
 
 ## Submission Form Readiness
 
 - [x] Contribution matrix is included in the report.
-- [ ] Contribution matrix has been cross-checked against the final commit history.
+- [x] Contribution matrix has been cross-checked against local git shortlog.
 - [ ] Google Form fields are pre-filled and reviewed.
 - [x] Team member names are ready in semicolon-separated format where required.
 - [x] Semicolon-separated team line:
 Aryan Verma; Devaansh Kathuria; Birajit Saikia; Abhey Dua; Atharv Paharia
+- [x] Form-ready field draft is present: `docs/submission_form_ready.md`.
+- [ ] Enrollment IDs and missing ADYPU emails have been filled in `docs/submission_form_ready.md`.
 - [x] GitHub link is listed in the report and ready for the form.
 
 ## QA And Consistency

@@ -34,8 +34,11 @@ Note: although the dataset is branded around NIFTY-50, the combined historical f
 
 ## Backup Dataset 2
 
-- Status: Placeholder
-- Note: a second Kaggle backup can be added later if the team decides to supplement sector benchmarking, index comparison, or macro context. No second backup dataset is referenced in the current repository contents yet.
+- Name: NSE India Stock Data (1990-2021)
+- Source: Kaggle
+- Publisher: stoicstatic
+- Link: [https://www.kaggle.com/datasets/stoicstatic/india-stock-data-nse-1990-2020](https://www.kaggle.com/datasets/stoicstatic/india-stock-data-nse-1990-2020)
+- Intended use: same-sector backup for Indian equity market price-history analysis if the primary NIFTY-50 dataset is rejected or needs replacement.
 
 ## Suitability Against Capstone Requirements
 
