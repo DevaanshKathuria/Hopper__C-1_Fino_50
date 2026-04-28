@@ -2,13 +2,28 @@
 
 ## Tableau Public URL
 
-Status: Pending publication.
+Status: Pending publication. The packaged workbook (`tableau/nifty50_dashboard.twbx`) is ready and must be opened in Tableau Desktop (Windows/macOS) to publish to Tableau Public. Update this section with the final URL after publication.
 
 Final URL:
-To be added after the Tableau dashboard is built and published.
+To be added after the Tableau dashboard is published from the `.twbx` file using Tableau Desktop.
 
 Placeholder rule:
 Do not insert a fake or temporary URL here. Replace this line only when the real Tableau Public link exists.
+
+## Packaged Workbook
+
+- `tableau/nifty50_dashboard.twbx` — packaged Tableau workbook containing all five CSV data sources, worksheet stubs for all six dashboard views, and a master dashboard layout. Built by `scripts/build_twbx.py`.
+
+## Reference Screenshots
+
+Data-accurate reference images generated from the processed Tableau CSVs by `scripts/generate_dashboard_visuals.py`:
+
+- `tableau/screenshots/01_executive_kpi_cards.png` — Executive KPI summary cards
+- `tableau/screenshots/02_market_trend_view.png` — Yearly market index, volume, and turnover trends
+- `tableau/screenshots/03_sector_comparison.png` — Sector-level return, volatility, and delivery comparison
+- `tableau/screenshots/04_stock_opportunity.png` — Risk–return scatter and top-20 opportunity ranking
+- `tableau/screenshots/05_covid_crash_recovery.png` — COVID crash and recovery comparison by sector
+- `tableau/screenshots/06_recommendation_view.png` — Recommendation action distribution and top stocks per bucket
 
 ## Submission Reminder
 

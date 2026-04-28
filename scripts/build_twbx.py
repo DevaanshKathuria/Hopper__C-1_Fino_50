@@ -1,0 +1,121 @@
+"""
+Build a packaged Tableau workbook (.twbx) from the five processed CSV data sources.
+
+A .twbx is a ZIP archive containing:
+  - a .twb XML workbook definition
+  - a Data/ folder with the embedded CSV data files
+
+This script creates a valid workbook referencing all five Tableau-ready CSVs
+so the file can be opened directly in Tableau Desktop for publication.
+"""
+
+import os
+import zipfile
+import textwrap
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+CSV_SOURCES = [
+    "data/processed/tableau_stock_level.csv",
+    "data/processed/tableau_sector_level.csv",
+    "data/processed/tableau_yearly_trends.csv",
+    "data/processed/tableau_risk_segments.csv",
+    "data/processed/tableau_recommendation_view.csv",
+]
+
+TWBX_PATH = os.path.join(ROOT, "tableau", "nifty50_dashboard.twbx")
+TWB_NAME = "nifty50_dashboard.twb"
+
+
+def _build_datasource_xml(csv_filename, alias):
+    """Return a <datasource> XML block for one CSV file embedded in the twbx."""
+    safe_name = csv_filename.replace(".csv", "").replace("_", "-")
+    return textwrap.dedent(f"""\
+    <datasource hasconnection='true' inline='true' name='{safe_name}' caption='{alias}'>
+      <connection class='textscan' directory='Data' filename='{csv_filename}' />
+    </datasource>""")
+
+
+def _build_twb_xml():
+    """Return the full .twb XML content."""
+    datasource_blocks = []
+    aliases = [
+        "Stock Level KPIs",
+        "Sector Level KPIs",
+        "Yearly Market Trends",
+        "Risk Segments",
+        "Recommendation View",
+    ]
+    for csv_path, alias in zip(CSV_SOURCES, aliases):
+        csv_filename = os.path.basename(csv_path)
+        datasource_blocks.append(_build_datasource_xml(csv_filename, alias))
+
+    ds_xml = "\n".join(datasource_blocks)
+
+    return textwrap.dedent(f"""\
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook source-build='2024.1.0' source-platform='win' version='18.1'
+          xml:base='https://public.tableau.com'
+          xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences />
+  <datasources>
+{ds_xml}
+  </datasources>
+  <worksheets>
+    <worksheet name='Executive KPI Cards'>
+      <table><view /></table>
+    </worksheet>
+    <worksheet name='Market Trend View'>
+      <table><view /></table>
+    </worksheet>
+    <worksheet name='Sector Comparison'>
+      <table><view /></table>
+    </worksheet>
+    <worksheet name='Stock Opportunity'>
+      <table><view /></table>
+    </worksheet>
+    <worksheet name='COVID Crash Recovery'>
+      <table><view /></table>
+    </worksheet>
+    <worksheet name='Recommendation View'>
+      <table><view /></table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='NIFTY-50 Sectoral Performance and Risk Intelligence Dashboard'>
+      <zones>
+        <zone h='100000' id='1' w='100000' x='0' y='0' type='layout-basic'>
+          <zone h='50000' id='2' w='100000' x='0' y='0' name='Executive KPI Cards' type='text' />
+          <zone h='50000' id='3' w='50000' x='0' y='50000' name='Market Trend View' type='text' />
+          <zone h='50000' id='4' w='50000' x='50000' y='50000' name='Sector Comparison' type='text' />
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+</workbook>
+""")
+
+
+def build():
+    os.makedirs(os.path.dirname(TWBX_PATH), exist_ok=True)
+
+    twb_content = _build_twb_xml()
+
+    with zipfile.ZipFile(TWBX_PATH, "w", zipfile.ZIP_DEFLATED) as zf:
+        zf.writestr(TWB_NAME, twb_content)
+        for csv_rel in CSV_SOURCES:
+            csv_abs = os.path.join(ROOT, csv_rel)
+            if not os.path.isfile(csv_abs):
+                raise FileNotFoundError(f"Required data source not found: {csv_abs}")
+            arc_name = f"Data/{os.path.basename(csv_rel)}"
+            zf.write(csv_abs, arc_name)
+
+    size_mb = os.path.getsize(TWBX_PATH) / (1024 * 1024)
+    print(f"Built {TWBX_PATH}  ({size_mb:.2f} MB)")
+    print("Embedded data sources:")
+    for csv_rel in CSV_SOURCES:
+        print(f"  - {csv_rel}")
+
+
+if __name__ == "__main__":
+    build()
