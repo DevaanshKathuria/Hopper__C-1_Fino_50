@@ -58,7 +58,7 @@ Indian investors and portfolio analysts need a clear way to compare NIFTY-linked
 3. Install project dependencies from `requirements.txt`.
 4. Confirm the raw Kaggle files are present in `data/raw/nifty-dataset/`.
 5. Run ETL scripts from `scripts/` to generate cleaned outputs in `data/processed/`.
-6. Run notebooks in `notebooks/` for EDA and statistical analysis.
+6. Run notebooks in `notebooks/` for EDA, statistical analysis, and final Tableau load preparation.
 7. Use processed extracts in Tableau and save screenshots in `tableau/screenshots/`.
 8. Store report drafts and the final write-up in `reports/`.
 
@@ -103,7 +103,7 @@ The extraction and cleaning layer writes the following project artifacts:
 
 ## EDA and KPI Outputs
 
-The analysis layer builds directly on `data/processed/nifty50_cleaned.csv` and is organized around Abhey Dua's EDA, KPI framework, and Tableau-ready tables.
+The analysis layer builds directly on `data/processed/nifty50_cleaned.csv` and is organized around Aryan Verma's EDA, KPI framework, and Tableau-ready tables.
 
 - Notebook: `notebooks/03_eda.ipynb`
 - Reusable analysis module: `scripts/eda_analysis.py`
@@ -162,6 +162,35 @@ Statistical design notes:
 - A five-cluster KMeans solution was checked, but the final segmentation uses a transparent rule-based method because the required five-cluster structure was not strongly supported by the sample.
 - Trend analysis uses 20-day and 60-day moving averages as regime indicators only and does not claim forecasting accuracy.
 
+## Final Tableau Load And Submission Assets
+
+The final integration layer packages the cleaned data, KPI outputs, and statistical outputs into Tableau-ready files plus submission-facing documentation.
+
+- Notebook: `notebooks/05_final_load_prep.ipynb`
+- Validation output: `outputs/tables/final_load_validation.csv`
+- Dashboard blueprint: `tableau/dashboard_blueprint.md`
+- Dashboard links placeholder: `tableau/dashboard_links.md`
+- Final report draft: `reports/project_report.md`
+- Presentation outline: `reports/presentation_outline.md`
+- Final checklist: `docs/final_submission_checklist.md`
+- Viva preparation: `docs/viva_questions.md`
+
+Generated Tableau-ready CSV files:
+
+| Output Path | Description |
+| --- | --- |
+| `data/processed/tableau_stock_level.csv` | Stock-level KPI pack with opportunity, risk, segment, and recommendation fields |
+| `data/processed/tableau_sector_level.csv` | Sector-level KPI pack with COVID crash and recovery comparison fields |
+| `data/processed/tableau_yearly_trends.csv` | Date-grain market and sector trend file for timeline views, filters, and regime overlays |
+| `data/processed/tableau_risk_segments.csv` | Stock-level risk and segmentation file for scatter plots, risk filters, and downside comparisons |
+| `data/processed/tableau_recommendation_view.csv` | Dashboard-ready recommendation file mapping stocks to `Buy`, `Watch`, `Trade Candidate`, and `Avoid` |
+
+Validation notes:
+
+- Duplicate key rows are `0` across all five Tableau exports.
+- Four of the five Tableau exports have full KPI availability.
+- `tableau_yearly_trends.csv` retains expected early-history gaps in rolling averages and some delivery coverage gaps, producing `99.5%` KPI availability without fabricating values.
+
 ## Expected Final Deliverables
 
 - Cleaned and documented Python ETL pipeline
@@ -176,4 +205,5 @@ Statistical design notes:
 
 - Raw source files are preserved under `data/raw/nifty-dataset/`.
 - Documentation in `docs/` is intentionally written for academic review, handoff, and viva preparation.
+- Tableau submission requires a packaged workbook in `.twbx` format only; the public URL placeholder is stored in `tableau/dashboard_links.md` until publication.
 - No analytical claims should be added unless they are backed by code, outputs, and versioned evidence in this repository.
