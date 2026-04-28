@@ -47,7 +47,7 @@ Use this checklist as the final handoff gate before the NST DVA Capstone 2 submi
 - [x] Semicolon-separated team line:
 Aryan Verma; Devaansh Kathuria; Birajit Saikia; Abhey Dua; Atharv Paharia
 - [x] Form-ready field draft is present: `docs/submission_form_ready.md`.
-- [ ] Enrollment IDs and missing ADYPU emails have been filled in `docs/submission_form_ready.md`.
+- [x] Enrollment IDs and ADYPU emails have been filled in `docs/submission_form_ready.md`.
 - [x] GitHub link is listed in the report and ready for the form.
 
 ## QA And Consistency

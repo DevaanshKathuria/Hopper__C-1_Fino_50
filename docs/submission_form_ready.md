@@ -1,6 +1,6 @@
 # Submission Form Ready Fields
 
-Use this file to prepare the final Google Form entries. Enrollment IDs and missing ADYPU emails must be filled by the team before submission.
+Use this file to prepare the final Google Form entries. The team member lines below now match the current form draft and use the exact semicolon-separated format required for marking.
 
 ## Email
 
@@ -12,11 +12,11 @@ Fino_50 (C-1)
 
 ## Team Member Fields
 
-- Aryan Verma; aryan.verma@adypu.edu.in; ENROLLMENT_ID_TO_BE_FILLED
-- Devaansh Kathuria; ADYPU_EMAIL_TO_BE_FILLED; ENROLLMENT_ID_TO_BE_FILLED
-- Birajit Saikia; birajit.saikia@adypu.edu.in; ENROLLMENT_ID_TO_BE_FILLED
-- Abhey Dua; ADYPU_EMAIL_TO_BE_FILLED; ENROLLMENT_ID_TO_BE_FILLED
-- Atharv Paharia; ADYPU_EMAIL_TO_BE_FILLED; ENROLLMENT_ID_TO_BE_FILLED
+- Birajit Saikia; birajit.saikia@adypu.edu.in; 2024-B-27092002
+- Aryan Verma; Aryan.Verma@adypu.edu.in; 2024-B-09082006B
+- Devaansh Kathuria; Devaansh.Kathuria@adypu.edu.in; 2024-B-02032007
+- Atharv Paharia; Atharv.Paharia@adypu.edu.in; 2024-B-05102005
+- Abhey Dua; ABHEY.DUA@adypu.edu.in; 2024-B-17012005A
 
 ## Project Report Link
 
