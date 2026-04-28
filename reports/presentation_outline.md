@@ -3,7 +3,7 @@
 ## Slide 1. Title And Team
 
 - Project title: Sectoral Performance, Risk, and Trading Opportunity Analysis of NIFTY-50 Stocks Using Python and Tableau
-- Group name: NST DVA Capstone 2 Team
+- Group name: Fino_50 (C-1)
 - Team members: Aryan Verma, Devaansh Kathuria, Birajit Saikia, Abhey Dua, Atharv Paharia
 - One-line objective: build a reproducible investor decision-support workflow from raw stock-market data
 

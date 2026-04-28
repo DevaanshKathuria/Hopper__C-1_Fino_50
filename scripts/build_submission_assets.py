@@ -226,7 +226,7 @@ def pdf_footer(canvas, doc) -> None:
     canvas.saveState()
     canvas.setFont("Helvetica", 7)
     canvas.setFillColor(colors.HexColor("#627D98"))
-    canvas.drawString(0.55 * inch, 0.35 * inch, "NST DVA Capstone 2 | NIFTY-50 Sectoral Performance & Risk Intelligence")
+    canvas.drawString(0.55 * inch, 0.35 * inch, "Fino_50 (C-1) | NIFTY-50 Sectoral Performance & Risk Intelligence")
     canvas.drawRightString(A4[0] - 0.55 * inch, 0.35 * inch, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -400,7 +400,7 @@ def build_presentation_pdf() -> None:
             )
             story.append(cover)
             story.append(Spacer(1, 10))
-            story.append(Paragraph("NST DVA Capstone 2 Team | Finance / Stock Market Analytics", styles["slide_body"]))
+            story.append(Paragraph("Fino_50 (C-1) | Finance / Stock Market Analytics", styles["slide_body"]))
         else:
             story.append(Paragraph(title, styles["slide_title"]))
             story.append(
