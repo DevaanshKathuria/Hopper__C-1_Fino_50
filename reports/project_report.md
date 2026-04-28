@@ -6,17 +6,26 @@ Group Name: NST DVA Capstone 2 Team
 
 Team Members:
 
-- Aryan Verma
-- Devaansh Kathuria
-- Birajit Saikia
-- Abhey Dua
-- Atharv Paharia
+- Aryan Verma - Exploratory Data Analysis, KPI framework, chart outputs
+- Devaansh Kathuria - Extraction, ETL, cleaning pipeline, processed data
+- Birajit Saikia - Final Tableau asset pack, report, presentation, QA
+- Abhey Dua - Statistical analysis, risk scoring, segmentation
+- Atharv Paharia - Dataset sourcing, repository setup, problem framing
 
 Project Sector:
 Finance / Stock Market Analytics
 
+Institute:
+Newton School of Technology
+
 GitHub Repository:
-[DVA_capstone_2](https://github.com/DevaanshKathuria/DVA_capstone_2)
+[Hopper__C-1_Fino_50](https://github.com/DevaanshKathuria/Hopper__C-1_Fino_50)
+
+Tableau Public Dashboard URL:
+Pending publication. This must be replaced with the final Tableau Public URL before final submission.
+
+Submission Date:
+April 28, 2026
 
 Submission Note:
 Unless explicitly stated otherwise, all numeric values in this report are computed from the versioned project outputs in `outputs/tables/` and the final Tableau extracts in `data/processed/tableau_stock_level.csv`, `data/processed/tableau_sector_level.csv`, `data/processed/tableau_yearly_trends.csv`, `data/processed/tableau_risk_segments.csv`, and `data/processed/tableau_recommendation_view.csv`.
@@ -55,7 +64,7 @@ Raw NIFTY historical data is not directly decision-ready. Without structured cle
 
 ### Source
 
-- Primary dataset: Kaggle NIFTY-50 Stock Market Data (2000-2021) by Rohan Rao
+- Primary dataset: [Kaggle NIFTY-50 Stock Market Data (2000-2021) by Rohan Rao](https://www.kaggle.com/datasets/rohanrao/nifty50-stock-market-data/data)
 - Local raw path: `data/raw/nifty-dataset/`
 - Metadata path: `data/raw/nifty-dataset/stock_metadata.csv`
 
@@ -76,6 +85,13 @@ Raw NIFTY historical data is not directly decision-ready. Without structured cle
 - participation variables: deliverable volume, deliverable percent
 - metadata variables: company name, industry, ISIN
 - derived analytical fields: returns, spreads, VWAP gap, turnover in crore, delivery ratio, flags, and date components
+
+### Data Limitations And Biases
+
+- The dataset is historical and cannot prove future market behavior.
+- Historical NIFTY membership changes create more row-level symbols than the current NIFTY-50 count.
+- Missing `trades` and delivery fields affect the certainty of participation-related conclusions.
+- Sector counts are uneven, so sector-level comparisons should be read as decision-support evidence rather than universal sector laws.
 
 ## Data Cleaning And ETL Methodology
 
@@ -194,6 +210,15 @@ The final-load validation output in `outputs/tables/final_load_validation.csv` c
 - KPI availability is `100%` for four of the five files
 - the trend file has expected early-history gaps in rolling averages and some delivery coverage gaps, leaving KPI availability at `99.5%`
 
+Dashboard status at report draft time:
+The Tableau-ready data pack and dashboard blueprint are complete, but the final Tableau workbook, screenshots, `.twbx` export, and Tableau Public URL must still be completed in Tableau before submission. The final PDF should be regenerated after those assets are added.
+
+Required interactive filters:
+Year, sector or industry, stock symbol, risk bucket, segment, and date range.
+
+Screenshot plan:
+Screenshots should be stored in `tableau/screenshots/` and inserted into this section after the workbook is built. Minimum screenshots should include the executive KPI view, market trend view, sector comparison view, stock opportunity view, COVID crash/recovery view, and recommendation view.
+
 ## Key Insights
 
 1. The equal-weighted market had its best yearly expansion in `2003` with `50.54%` cumulative return and its weakest in `2008` with `-41.59%`.
@@ -262,19 +287,68 @@ The project now reaches the final integration stage with reproducible ETL, docum
 `data/processed/tableau_stock_level.csv`, `data/processed/tableau_sector_level.csv`, `data/processed/tableau_yearly_trends.csv`, `data/processed/tableau_risk_segments.csv`, and `data/processed/tableau_recommendation_view.csv`
 - final load validation: `outputs/tables/final_load_validation.csv`
 
-### Appendix B: Tableau Submission Note
+### Appendix B: Data Dictionary Summary
+
+| Field Group | Representative Columns | Business Use |
+| --- | --- | --- |
+| Price fields | `prev_close`, `open`, `high`, `low`, `close`, `vwap` | return, volatility, spread, and trade-quality analysis |
+| Activity fields | `volume`, `turnover`, `trades`, `turnover_cr` | liquidity and market-depth analysis |
+| Delivery fields | `deliverable_volume`, `deliverable_percent`, `delivery_ratio` | participation and holding-conviction proxy |
+| Metadata fields | `source_symbol`, `company_name`, `industry`, `isin_code` | stock and sector grouping |
+| Quality flags | `missing_price_flag`, `missing_volume_flag`, `invalid_ohlc_flag`, `outlier_return_flag` | transparent ETL validation and analysis filtering |
+| KPI fields | `annualized_return_percent`, `volatility_percent`, `max_drawdown_percent`, `opportunity_score` | stock and sector decision support |
+
+Full field definitions are maintained in `docs/data_dictionary.md`.
+
+### Appendix C: Cleaning Log Summary
+
+- Raw stock files used: `50`
+- Combined raw file detected but not stacked: `1`
+- Cleaned rows: `235,192`
+- Date range: `2000-01-03` to `2021-04-30`
+- Missing `trades` rows: `114,848`
+- Missing `deliverable_percent` rows: `16,077`
+- Invalid OHLC rows: `0`
+- Outlier return rows flagged: `12,680`
+- Turnover scale factor applied: `100000`
+
+The full cleaning log is maintained in `docs/cleaning_log.md`.
+
+### Appendix D: Notebook And Script References
+
+| Project Stage | Notebook | Supporting Script |
+| --- | --- | --- |
+| Extraction | `notebooks/01_extraction.ipynb` | `scripts/etl_pipeline.py` |
+| Cleaning | `notebooks/02_cleaning.ipynb` | `scripts/etl_pipeline.py` |
+| EDA and KPIs | `notebooks/03_eda.ipynb` | `scripts/eda_analysis.py` |
+| Statistical analysis | `notebooks/04_statistical_analysis.ipynb` | `scripts/statistical_analysis.py` |
+| Final Tableau load | `notebooks/05_final_load_prep.ipynb` | final-load notebook code |
+
+### Appendix E: Chart And Table Outputs
+
+Core chart outputs are stored in `outputs/charts/`, including yearly trend, sector return, sector volatility, delivery trend, risk-return scatter, COVID crash/recovery, correlation heatmap, and segmentation visuals.
+
+Core table outputs are stored in `outputs/tables/`, including cleaning summary, stock KPIs, sector KPIs, yearly market summary, COVID period summary, statistical test results, risk summary, stock segments, recommendation evidence, and final load validation.
+
+### Appendix F: Tableau Submission Note
 
 The dashboard must be exported and submitted in `.twbx` format only. The Tableau Public link should be stored in `tableau/dashboard_links.md` after publication and should match the same final packaged workbook.
 
-### Appendix C: Contribution Matrix
+### Appendix G: Contribution Matrix
 
-| Team Member | Primary Responsibility | Final Evidence In Repo |
-| --- | --- | --- |
-| Atharv Paharia | repository setup, dataset sourcing, problem framing, early documentation | `docs/dataset_sources.md`, `docs/problem_statement.md`, repo structure |
-| Devaansh Kathuria | ETL pipeline, cleaning logic, processed dataset generation | `scripts/etl_pipeline.py`, `notebooks/01_extraction.ipynb`, `notebooks/02_cleaning.ipynb`, `docs/cleaning_log.md` |
-| Aryan Verma | EDA, KPI definition, descriptive insights, chart support | `notebooks/03_eda.ipynb`, `scripts/eda_analysis.py`, `docs/kpi_framework.md`, `docs/eda_insights.md` |
-| Abhey Dua | statistical analysis, risk scoring, testing, segmentation | `notebooks/04_statistical_analysis.ipynb`, `scripts/statistical_analysis.py`, `docs/statistical_analysis_summary.md`, `docs/recommendation_evidence.md` |
-| Birajit Saikia | final Tableau asset pack, final report assembly, presentation support, QA, submission readiness | `notebooks/05_final_load_prep.ipynb`, `tableau/dashboard_blueprint.md`, `tableau/dashboard_links.md`, `reports/project_report.md`, `reports/presentation_outline.md`, `docs/final_submission_checklist.md`, `docs/viva_questions.md` |
+| Team Member | Dataset & Sourcing | ETL & Cleaning | EDA & Analysis | Statistical Analysis | Tableau Dashboard | Report Writing | PPT & Viva |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Aryan Verma | Support | Review | Lead: KPIs, EDA charts, insight memo | Support | Chart support | Support | Support |
+| Devaansh Kathuria | Support | Lead: ETL pipeline, cleaning notebook, processed data | Support | Support | Data support | Support | Support |
+| Birajit Saikia | Review | Final integration QA | Final integration QA | Final integration QA | Lead: Tableau CSV pack, blueprint, dashboard links | Lead: final report assembly | Lead: presentation outline and viva prep |
+| Abhey Dua | Support | Review | Support | Lead: tests, risk scoring, segmentation, recommendations | Statistical evidence support | Support | Support |
+| Atharv Paharia | Lead: sourcing, repository setup, initial framing | Support | Support | Support | Support | Early documentation | Support |
+
+Contribution evidence:
+
+- Git history shows visible commits from all five members.
+- `git shortlog -sne --all` shows 6 commits each for Aryan Verma, Devaansh Kathuria, Birajit Saikia, Abhey Dua, and Atharv Paharia in the audited local repository history.
+- The matrix above should still be checked against GitHub Insights and any pull request evidence before final form submission.
 
 Final note:
 This matrix should be cross-checked one last time against the final commit history before form submission.

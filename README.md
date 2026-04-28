@@ -8,6 +8,10 @@
 - Abhey Dua
 - Atharv Paharia
 
+## Final Repository
+
+[Hopper__C-1_Fino_50](https://github.com/DevaanshKathuria/Hopper__C-1_Fino_50)
+
 ## Sector
 
 Finance / Stock Market Analytics
@@ -20,7 +24,7 @@ Indian investors and portfolio analysts need a clear way to compare NIFTY-linked
 
 - Primary dataset: [Kaggle NIFTY-50 Stock Market Data (2000-2021) by Rohan Rao](https://www.kaggle.com/datasets/rohanrao/nifty50-stock-market-data/data)
 - Backup dataset 1: [Kaggle S&P 500 Stocks by Andrew Mvd](https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks)
-- Backup dataset 2: To be finalized if additional augmentation is required during ETL validation
+- Backup dataset 2: [Kaggle NSE India Stock Data (1990-2021) by stoicstatic](https://www.kaggle.com/datasets/stoicstatic/india-stock-data-nse-1990-2020)
 
 ## Project Workflow
 
@@ -171,8 +175,11 @@ The final integration layer packages the cleaned data, KPI outputs, and statisti
 - Dashboard blueprint: `tableau/dashboard_blueprint.md`
 - Dashboard links placeholder: `tableau/dashboard_links.md`
 - Final report draft: `reports/project_report.md`
+- Final report DOCX/PDF: `reports/project_report.docx`, `reports/project_report.pdf`
 - Presentation outline: `reports/presentation_outline.md`
+- Presentation deck/PDF: `reports/presentation.pptx`, `reports/presentation.pdf`
 - Final checklist: `docs/final_submission_checklist.md`
+- Submission form draft: `docs/submission_form_ready.md`
 - Viva preparation: `docs/viva_questions.md`
 
 Generated Tableau-ready CSV files:
