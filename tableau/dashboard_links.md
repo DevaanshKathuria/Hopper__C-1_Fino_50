@@ -16,8 +16,9 @@ Do not insert a fake or temporary URL here. Replace this line only when the real
 
 ## Reference Screenshots
 
-Data-accurate reference images generated from the processed Tableau CSVs by `scripts/generate_dashboard_visuals.py`:
+Latest workbook screenshots captured from the verified Tableau workbook:
 
+- `tableau/screenshots/00_dashboard_overview.png` — Combined dashboard overview with KPI cards and the major analytical views
 - `tableau/screenshots/01_executive_kpi_cards.png` — Executive KPI summary cards
 - `tableau/screenshots/02_market_trend_view.png` — Yearly market index, volume, and turnover trends
 - `tableau/screenshots/03_sector_comparison.png` — Sector-level return, volatility, and delivery comparison

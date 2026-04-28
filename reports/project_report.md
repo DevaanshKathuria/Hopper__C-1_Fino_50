@@ -218,6 +218,7 @@ Year, sector or industry, stock symbol, risk bucket, segment, and date range.
 
 Reference screenshots:
 
+- `tableau/screenshots/00_dashboard_overview.png` — Combined dashboard overview with KPI cards and the major analytical views
 - `tableau/screenshots/01_executive_kpi_cards.png` — Executive KPI summary cards
 - `tableau/screenshots/02_market_trend_view.png` — Yearly market index, volume, and turnover trends
 - `tableau/screenshots/03_sector_comparison.png` — Sector-level return, volatility, and delivery comparison
