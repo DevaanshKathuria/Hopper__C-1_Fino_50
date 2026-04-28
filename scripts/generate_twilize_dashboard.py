@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
+from twilize import pipeline as twilize_pipeline
 from twilize.chart_suggester import ChartSuggestion, DashboardSuggestion, ShelfAssignment
 from twilize.dashboard_rules import load_rules
 from twilize.pipeline import build_dashboard_from_csv
@@ -294,6 +295,10 @@ def main() -> None:
     master_csv = build_master_csv()
     rules = load_rules(str(master_csv))
     rules.setdefault("layout", {}).setdefault("filters", {})["max_filters"] = 5
+    # Twilize's enhanced KPI string calculations currently render as invalid
+    # fields in Tableau for this workbook. Keep KPI cards simple and native:
+    # aggregated measures on Text marks without generated YoY calc wrappers.
+    twilize_pipeline._prepare_enhanced_kpis = lambda *args, **kwargs: None
     result = build_dashboard_from_csv(
         csv_path=master_csv,
         output_path=OUTPUT_TWBX,
